@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Utils.fs" />
+    <Compile Include="Actors\Types.fs" />
+    <Compile Include="Actors\Operations.fs" />
+    <Compile Include="Types.fs" />
+    <Compile Include="Player\Operations.fs" />
+    <Compile Include="RoomsAndPassages\Operations.fs" />
+    <Compile Include="Operations.fs" />
+    <Compile Include="Commands\Examine.fs" />
+    <Compile Include="Commands\Exit.fs" />
+    <Compile Include="Commands\Sleep.fs" />
+    <Compile Include="Commands\WakeUp.fs" />
+    <Compile Include="Commands\Go.fs" />
+    <Compile Include="Commands\Turn.fs" />
+    <Compile Include="Commands\CommandList.fs" />
+    <Compile Include="Controls.fs" />
+    <Compile Include="StartignStates\Items\Currency.fs" />
+    <Compile Include="StartignStates\State1\Data.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+</Project>
