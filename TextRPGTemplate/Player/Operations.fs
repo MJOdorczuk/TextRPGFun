@@ -15,7 +15,7 @@ let PlayerEquipment ((_, equipment) : PlayerInfo) : Equipment =
 let ChangeEquipment ((direction, _) : PlayerInfo) (equipment : Equipment) : PlayerInfo =
     direction, equipment
 
-let Equip (item : CollectableActor) (info : PlayerInfo) : PlayerInfo =
+let Equip (info : PlayerInfo) (item : CollectableActor) : PlayerInfo =
     let equipment = PlayerEquipment info
     ChangeEquipment info (item::equipment)
 

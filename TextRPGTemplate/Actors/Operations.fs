@@ -54,6 +54,13 @@ let SelectConainers (actors : Actor list) : ContainerActor list =
     |> List.map AsContainer
     |> List.choose id
 
+let FilterCollectables (actors : Actor list) : Actor list =
+    let predicate actor = 
+        match AsCollectable actor with
+        | Some _ -> false
+        | _ -> true
+    List.filter predicate actors
+
 let CountActors (actors : Actor list) : (int * Name * Description) list =
     actors
     |> List.groupBy ActorName

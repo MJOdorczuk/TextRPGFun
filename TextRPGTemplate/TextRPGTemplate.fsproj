@@ -13,6 +13,7 @@
     <Compile Include="Player\Operations.fs" />
     <Compile Include="RoomsAndPassages\Operations.fs" />
     <Compile Include="Operations.fs" />
+    <Compile Include="Commands\Collect.fs" />
     <Compile Include="Commands\Examine.fs" />
     <Compile Include="Commands\Exit.fs" />
     <Compile Include="Commands\Sleep.fs" />

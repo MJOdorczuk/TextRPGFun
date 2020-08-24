@@ -38,11 +38,44 @@ let RoomActors (room : Room) : Actor list option =
     |> ExtractRoomInfo
     |?> RoomInfoActors
 
-let SetRoomActors (actors : Actor list) (room : Room) : unit =
+let FindActors (room : Room) (name : Name) : Actor list option =
+    room
+    |> RoomActors
+    |?> List.filter (fun actor -> ActorName actor = name)
+
+let SetRoomActors (room : Room) (actors : Actor list) : unit =
     room
     |> ExtractRoomInfo
     |?> ChangeInfoActors actors
-    |> ignore   
+    |> ignore  
+
+let AddRoomActors (room : Room) (actors : Actor list) : unit =
+    room
+    |> RoomActors
+    |?> (@) actors
+    |?> SetRoomActors room
+    |> ignore
+    
+let ExtractActors (room : Room) (predicate : Actor -> bool) : Actor list =
+    let actors = 
+        room
+        |> RoomActors
+        |?> List.filter predicate
+        |> Option.defaultValue []
+    let reminder =
+        room
+        |> RoomActors
+        |?> List.filter (predicate >> not)
+        |> Option.defaultValue []
+    SetRoomActors room reminder
+    actors
+
+let RemoveCollectables (room : Room) : unit =
+    room
+    |> RoomActors
+    |?> FilterCollectables
+    |?> SetRoomActors room
+    |> ignore
 
 let GetPassage (direction : Direction) (room : Room) : Passage option =
     match room with

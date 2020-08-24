@@ -2,7 +2,6 @@
 
 open Actors.Types
 
-
 type RoomInfo (name : string, description : string, actors : Actor list) =
     member public __.Name = name
     member public __.Description = description
