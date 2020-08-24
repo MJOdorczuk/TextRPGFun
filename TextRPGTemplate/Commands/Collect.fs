@@ -71,7 +71,7 @@ let EveryCollectionAction (name : string) (state : GameState) : ActionResult =
                     "\n")
     | _ -> Failure "Can only collect items on free movement"
 
-let (|ExamineCommand|_|) (command : string) (state : GameState) : ActionResult option =
+let (|CollectCommand|_|) (command : string) (state : GameState) : ActionResult option =
     match command with
     | Utils.Regex "collect all" _ -> Some (GeneralCollectionAction state)
     | Utils.Regex "collect every (.+)" [name] -> Some (EveryCollectionAction name state)

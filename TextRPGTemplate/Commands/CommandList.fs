@@ -1,6 +1,7 @@
 ﻿module Commands.CommandList
 
 open Types
+open Commands.Collect
 open Commands.Examine
 open Commands.Exit
 open Commands.Sleep
@@ -14,7 +15,8 @@ let commands : (string -> GameState -> ActionResult option) list = [
     (|SleepCommand|_|);
     (|WakeUpCommand|_|);
     (|GoCommand|_|);
-    (|TurnCommand|_|)
+    (|TurnCommand|_|);
+    (|CollectCommand|_|)
     ]
 
 let MatchCommand (state : GameState) (textCommand : string) : ActionResult =
